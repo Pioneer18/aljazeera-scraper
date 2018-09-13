@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand" href="/">Aljazeera</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_options" aria-controls="nav_options" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="nav_options">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/saved">Saved Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-danger scrape-new">LATEST ARTICLES</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-danger clear">CLEAR ARTICLES</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <div class="overlay"><!--adds the darker overlay to the jumbotron-->
+  </div>
+  <div class="background-image">
+  </div>
+  <div class="caption">
+    <h1>ALJAZEERA SCRAPER</h1>
+    <p>Catch up on World News the easy way</p>
+  </div>
+</div>
+<div class="container-fluid articles-container">
+  {{#each articles}}
+    <div class="card">
+        <div class="card-header">
+            <!--render the title wrapped in an a-tag to the article's page-->
+            <a class="link" href="{{link}}"><h3>{{topic}}</h3></a> 
+            <!--a href to tell the app to save the article in the db for later reading-->
+            <a class="btn btn-successs save">Save Article</a>
+        </div>
+        <div class="card-body">
+            <h5>{{title}}</h5>
+            {{#unless col7}}
+            <p>{{desc}}</p>
+            {{/unless}}
+        </div>
+    </div>
+    </div>
+  {{/each}}
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>ALJAZEERA SCRAPEER</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+  $(".save").on("click",()=>{
+    //store the card
+    var saved = $(this)
+      .parents(".card")
+      .data()
+
+
+  }) 
+</script>
+
