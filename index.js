@@ -83,7 +83,7 @@ app.get("/", function(req, res) {
         // then save the values for any "href" attributes that the child elements may have
         var title = $(element).find("div.top-feature-overlay-cont").find("a").find("h2.top-sec-title").text();
         //find the article description
-        var link = $(element).find("div.top-feature-overlay-cont").children("a").attr("href");
+        var link = $(element).find("div.top-feature-overlay-cont").children("a").children("a").attr("href");
   
         var desc = $(element).find("div.top-feature-overlay-cont").find("p.top-sec-desc").text();
   
