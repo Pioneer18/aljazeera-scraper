@@ -75,7 +75,8 @@ app.get("/", function(req, res) {
       // With cheerio, find each p-tag with the "title" class
       // (i: iterator. element: the current element)
       $("div.top-section-lt").each(function(i, element) {
-  
+        
+        var base = "https://aljazeera.com";
         // Save the text of the element in a "title" variable
         var topic = $(element).find("div.top-feature-overlay-cont").find("p.big-image-label").text();
   
@@ -84,9 +85,10 @@ app.get("/", function(req, res) {
         var title = $(element).find("div.top-feature-overlay-cont").find("a").find("h2.top-sec-title").text();
         //find the article description
         var link = $(element).find("div.top-feature-overlay-cont").children("a").children("a").attr("href");
-  
+        
         var desc = $(element).find("div.top-feature-overlay-cont").find("p.top-sec-desc").text();
   
+        
         //insert the article(s) into the db
         db.Article.create({
           topic: topic,
@@ -116,7 +118,7 @@ app.get("/", function(req, res) {
         // In the currently selected element, look at its child elements (i.e., its a-tags),
         // then save the values for any "href" attributes that the child elements may have
         var title = $(element).find("div.topFeature-sblock-wr").find("a").find("h2").text();
-        var link = $(element).find("div.topFeature-sblock-wr").children("a").attr("href");
+        var link = $(element).find("div.topFeature-sblock-wr").children("a").children("a").attr("href");
         //find the article description
         //var img_url = $(element).find("div.topFeature-sblock-wr").find("a").children("img").eq(2).attr('src');
   
