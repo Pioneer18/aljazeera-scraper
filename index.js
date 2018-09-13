@@ -102,18 +102,7 @@ app.get("/", function(req, res) {
   
       });
   
-      db.Saved.create({
-        topic: topic,
-        title: title,
-        link: link,
-        desc: desc
-      }).then((dbSaved)=> {
-        //view the added result in the console
-          console.log(dbSaved);
-        }).catch((err)=>{
-          return res.json(err)
-        });
-  
+
   
   
       //put the scraped data into a table
