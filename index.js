@@ -64,7 +64,7 @@ app.get("/", function(req, res) {
   
   //scrape route will bring back all the articles on the Aljazeera home page and save them in the db and display them
   //on the home page (dynamically with jquery)
-  app.get("/scrape", function(req,res){
+  app.get("/scrape", function(req,response){
     // Making a request for reddit's "webdev" board. The page's HTML is passed as the callback's third argument
     axios.get("https://www.aljazeera.com/news/").then(function(response) {
   
