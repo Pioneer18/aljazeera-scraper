@@ -83,7 +83,7 @@ app.get("/", function(req, res) {
         // then save the values for any "href" attributes that the child elements may have
         var title = $(element).find("div.top-feature-overlay-cont").find("a").find("h2.top-sec-title").text();
         //find the article description
-        var link = $(element).find("div.top-feature-overlay-cont").find("a").attr("href");
+        var link = $(element).find("div.top-feature-overlay-cont").children("a").attr("href");
   
         var desc = $(element).find("div.top-feature-overlay-cont").find("p.top-sec-desc").text();
   
@@ -116,7 +116,7 @@ app.get("/", function(req, res) {
         // In the currently selected element, look at its child elements (i.e., its a-tags),
         // then save the values for any "href" attributes that the child elements may have
         var title = $(element).find("div.topFeature-sblock-wr").find("a").find("h2").text();
-        var link = $(element).find("div.topFeature-sblock-wr").find("a").attr("href");
+        var link = $(element).find("div.topFeature-sblock-wr").children("a").attr("href");
         //find the article description
         //var img_url = $(element).find("div.topFeature-sblock-wr").find("a").children("img").eq(2).attr('src');
   
