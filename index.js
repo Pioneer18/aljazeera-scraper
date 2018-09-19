@@ -39,7 +39,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/aljazeera2"
 //set mongoose to leverage built in Javascript ES6 Promise
 mongoose.Promise = Promise;
 //connect to Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //=================================================================================================================================
 //                                 Express Routes
