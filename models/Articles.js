@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create a new schema object for the ArticlesSchema
-const commentsSchema = new Schema({
+const articlesSchema = new Schema({
     //associate the comment with a specific article id
     topic: {
         type: String,
