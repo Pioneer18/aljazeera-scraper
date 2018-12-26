@@ -1,15 +1,19 @@
 {
-    "name": "aljazeera_scraper",
-    "version": "1.0.0",
-    "description": "scrape aljazeera news for the latest articles",
-    "main": "server.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      
-    }
+  "name": "aljazeera_scraper",
+  "version": "1.0.0",
+  "description": "scrape aljazeera news for the latest articles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.1"
   }
-  
+}
