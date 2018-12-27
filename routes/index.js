@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//now import the other routes
+//now import the other api and view routes
 const apiRoutes = require('./api');
 const viewRoutes = require('./view');
 

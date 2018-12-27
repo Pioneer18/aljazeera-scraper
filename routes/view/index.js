@@ -8,6 +8,16 @@ router.get('/', function(req, res) {
         //sort by date before rendering
         .sort({ date: -1 }) 
         .then(function(dbArticles) {
-            res.render('index', { articles: dbArticles }); //render index view with the articles
+            res.render('index', { articles: dbArticles }); //render the index view with the articles
         });
 });
+
+//route to render the saved handlebars page
+router.get('/saved', function(req, res) {
+    //find only those articles with the saved boolean as true
+    db.Articles.find({ saved: true })
+        .sort({ date: -1 })
+        .then((dbArticles) => {
+            res.render('saved', { articles: dbArticles }) //render the saved view with the articles
+        })
+} )
