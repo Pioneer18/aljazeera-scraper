@@ -2,6 +2,7 @@
 
 
 var db = require("../models");
+//import the scrape function from Scripts
 var scrape = require("../scripts/scrape");
 
 module.exports = {

@@ -37,6 +37,6 @@ const articlesSchema = new Schema({
 });
 
 //create Articles model
-const Articles = mongoose.model('Articles', ArticlesSchema);
+const Articles = mongoose.model('Articles', articlesSchema);
 //export the model to models' index.js
 module.exports = Articles;
