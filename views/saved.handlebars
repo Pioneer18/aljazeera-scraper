@@ -1,0 +1,98 @@
+<!--index file to display either recently scrapped articles or instructions to scrape for latests-->
+
+<!-- NAVIGATION-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+  <a class="navbar-brand" href="#">Aljazeera Scraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/saved">Saved Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link clear">Clear Articles</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--END NAVIGATION-->
+
+
+<!--JUMBOTRON W/ BACKGROUND IMAGE-->
+<div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+  <div class="text-white text-center py-5 px-4 my-5">
+    <div>
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Aljazeera News Scraper</strong></h2>
+      <p class="mx-5 mb-5">Scrape for the latest articles on aljazeera.com and save them for later or just add comments
+      </p>
+    </div>
+  </div>
+</div>
+<!--END JUMBOTRON W/ BACKGROUND IMAGE-->
+
+
+<!--ARTICLES CONTAINER-->
+<div class="container-fluid article-container">
+  <!--use helpers to dynamically render the articles-->
+  {{#each articles}}
+  <div data-_id="{{this._id}}" class="card">
+    <div class="card-header">
+      <h3>
+        <!--render the title wrapped in an a-tag to the article's page-->
+        <a class="link" href="{{link}}"><h3>{{topic}}</h3></a> 
+        <!--a href to tell the app to save the article in the db for later reading-->
+        <a class="btn btn-danger delete">Delete From Saved</a>
+        <a class="btn btn-info notes">Article Comments</a>
+      </h3>
+    </div>
+    <div  data-_id="{{this._id}}" class="card-body">
+      <h5>{{title}}</h5>
+        {{#unless col7}}
+        <p>{{desc}}</p>
+        {{/unless}}
+    </div>
+  </div>
+  {{/each}} {{#unless articles.length}}
+  <!--use the above #unless helper to render a message to user when no new articles are available-->
+  <div class='alert alert-warning text-center'>
+    <h4>Oops, there are currently no articles available</h4>
+  </div>
+  <div class="card">
+    <div class="card-header text-center">
+      <h3>What Would You Like To Do?</h3>
+    </div>
+    <div class="card-body text-center">
+      <h4>
+        <a class="scrape-new">Try Scraping New Articles</a>
+      </h4>
+      <h4>
+        <a href="/saved">Go to Saved Articles</a>
+      </h4>
+    </div>
+  </div>
+  {{/unless}}
+</div>
+<!--END ARTICLES CONTAINER-->
+
+<!--FOOTER-->
+<footer class="footer">
+  <div class="container">
+    <p>Aljazeera Scraper</p>
+  </div>
+</footer>
+<!--END FOOTER-->
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.0/css/mdb.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="/assets/javascript/index.js"></script>
