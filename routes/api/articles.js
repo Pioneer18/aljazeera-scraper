@@ -1,8 +1,12 @@
-//route to scrape (with axios controller) for new articles
+//route to grab recently scraped articles from db, delete specific article by id,
+//and upadte specific article
 const router = require('express').Router();
-//require the axios controller
-const axiosController = require('../../controllers/axios');
+//require the articles controller 
+const articleController = require('../../controllers/articles');
 
-//this route relies on the axios controller and scrape script to pull the latest articles
-router.get('/', axiosController.scrapeArticles); 
+router.get('/', articleController.findAll); //find all the recent articles when homepage hit
+router.delete('/:id', articleController.delete); //delete an article
+router.put('/:id', articleController.update); //update and article
 
+//export the router
+module.exports = router;
