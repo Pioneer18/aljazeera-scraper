@@ -6,3 +6,4 @@ const axiosController = require('../../controllers/axios');
 //this route relies on the axios controller and scrape script to pull the latest articles
 router.get('/', axiosController.scrapeArticles); 
 
+module.exports = router;

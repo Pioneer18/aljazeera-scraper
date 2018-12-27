@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 3000;
 const routes = require('./routes');
 
 //Serve the public folder as a static direcotry with express
-app.use(epxress.static('public'));
+app.use(express.static('public'));
 
 //setup the express-handlebars view engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));

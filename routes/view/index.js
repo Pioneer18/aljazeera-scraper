@@ -21,3 +21,5 @@ router.get('/saved', function (req, res) {
             res.render('saved', { articles: dbArticles }) //render the saved view with the articles
         })
 })
+
+module.exports = router;

@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 
 //create the schema class 
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 //create a new schema object for the commentsSchema
 const commentsSchema = new Schema({
