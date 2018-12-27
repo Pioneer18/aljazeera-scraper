@@ -1,8 +1,8 @@
 //wait for document to load 
 $(document).ready(function () {
 
-  //reference the article container dive
-  var articleContainer = $(".article-container");
+  //reference the article container div to append the articles
+  const articleContainer = $(".article-container");
   //save article event handler
   $(document).on("click", ".btn.save", handleArticleSave);
   //scrape for new articles event handler
@@ -28,12 +28,13 @@ $(document).ready(function () {
   const renderArticles = (articles) => {
     //this function relys on JQuery to dynamically render bootstrap cards to the page containing the articles
     //the initPage function passes all the unsaved articles in the db into the articleCards array
-    var articleCards = [];
+    const articleCards = [];
     // each article JSON object is passed to the createCard function
-    for (var i = 0; i < articles.length; i++) {
+    for (const i = 0; i < articles.length; i++) {
       articleCards.push(createCard(articles[i]));
     }
     //append the array of articles to the articles container
+    //the #each helper will neatly render each card to the page
     articleContainer.append(articleCards);
   }
 
@@ -49,7 +50,7 @@ $(document).ready(function () {
       )
     );
 
-    var cardBody = $("<div class='card-body'>").text(article.summary);
+    const cardBody = $("<div class='card-body'>").text(article.summary);
 
     card.append(cardHeader, cardBody);
     // We attach the article's id to the jQuery element
@@ -62,7 +63,7 @@ $(document).ready(function () {
   const renderEmpty = () => {
     // This function renders some HTML to the page explaining we don't have any articles to view
     // Using a joined array of HTML string data because it's easier to read/change than a concatenated string
-    var emptyAlert = $(
+    const emptyAlert = $(
       [
         "<div class='alert alert-warning text-center'>",
         "<h4>Uh Oh. Looks like we don't have any new articles.</h4>",
@@ -86,7 +87,7 @@ $(document).ready(function () {
     // This function is triggered when the user wants to save an article
     // When we rendered the article initially, we attached a javascript object containing the headline id
     // to the element using the .data method. Here we retrieve that.
-    var articleToSave = $(this)
+    const articleToSave = $(this)
       .parents(".card")
       .data();
 
