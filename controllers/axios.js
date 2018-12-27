@@ -6,7 +6,7 @@ var db = require("../models");
 var scrape = require("../scripts/scrape");
 
 module.exports = {
-  scrapeHeadlines: function(req, res) {
+  scrapeArticles: function(req, res) {
     // scrape Aljazeera with 'scrape' script
     return scrape()
       .then(function(articles) {
