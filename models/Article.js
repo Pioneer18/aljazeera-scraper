@@ -23,15 +23,6 @@ var ArticleSchema = new Schema({
     time:{
         type:Date,
         requireed:false
-    },
-    note: {
-        type:Schema.Types.ObjectId,
-        ref: "Note"
-    },
-    saved: {
-        type: Boolean,
-        required: true,
-        default: false
     }
 });
 
