@@ -25,7 +25,7 @@ router.get("/", function(req, res) {
   
   //scrape route will bring back all the articles on the Aljazeera home page and save them in the db and display them
   //on the home page (dynamically with jquery)
-  router.get("/scrape", function(req,response){
+  router.get("/scrape", function(req,res){
     // Making a request for reddit's "webdev" board. The page's HTML is passed as the callback's third argument
     axios.get("https://www.aljazeera.com/news/").then(function(response) {
   
@@ -126,8 +126,8 @@ router.get("/", function(req, res) {
       });
       // Log the results once you've looped through each of the elements found with cheerio
       console.log(results);
-      res.send("Scrape Complete");
     });
+    res.redirect("/");
   });
   //==================================================================================================================================
   //make a route to pull all the articles that have been scrroutered and display them to the user
@@ -158,17 +158,6 @@ router.get("/", function(req, res) {
   })
   
   //======================================================================================================================================
-  //make a route to save the articles
-  router.put("/save", (req,res) => {
-    console.log(`body: ${req.body}`);
-    console.log(`data: ${req.body.data}`)
-    db.Saved.insertOne({
-      topic: req.body.topic,
-      title: req.body.title,
-      link: req.body.link,
-      desc: req.body.desc
-    })
-  })
 
 
   module.exports = router;

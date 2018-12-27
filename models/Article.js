@@ -10,15 +10,18 @@ var ArticleSchema = new Schema({
     },
     title: {
         type: String,
-        required: true //don't want anything without a title
+        required: true, //don't want anything without a title
+        unique: true
     },
     link: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     desc: {
         type:String,
-        required:false
+        required:false,
+        unique: true
     },
     time:{
         type:Date,
