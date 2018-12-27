@@ -1,18 +1,21 @@
 //wait for document to load 
-$(document).ready(function () {
+$(document).ready(() => {
 
   //reference the article container div to append the articles
   const articleContainer = $(".article-container");
+
   //save article event handler
   $(document).on("click", ".btn.save", handleArticleSave);
+
   //scrape for new articles event handler
   $(document).on("click", ".scrape-new", handleArticleScrape);
+
   //clear articles event handler
   $(".clear").on("click", handleArticleClear);
 
   const initPage = () => {
     // Run an AJAX request for any unsaved articles (use the 'saved' unique id set to false)
-    $.get("/api/articles?saved=false").then(function (data) {
+    $.get("/api/articles?saved=false").then((data) => {
       //clear out the container before rendering the latest articles
       articleContainer.empty();
       // If we have articles, render them to the page
@@ -107,7 +110,7 @@ $(document).ready(function () {
       method: "PUT",
       url: "/api/articles/" + articleToSave._id,
       data: articleToSave
-    }).then(function (data) {
+    }).then((data) => {
       // If the data was saved successfully
       if (data.saved) {
         // Run the initPage function again. This will reload the entire list of articles
@@ -122,7 +125,7 @@ $(document).ready(function () {
   //event handler called when scrape-new class is clicked
   const handleArticleScrape = () => {
     //call on the axios route to scrape for articles (with the scrape Script)
-    $.get("/api/axios").then(function (data) {
+    $.get("/api/axios").then((data) => {
       //now reload the page with the newly scraped articles
       initPage();
     });
@@ -130,7 +133,7 @@ $(document).ready(function () {
 
   //event handler called when clear class clicked on
   const handleArticleClear = () => {
-    $.get("api/clear").then(function () {
+    $.get("api/clear").then(() => {
       articleContainer.empty();
       initPage();
     });
