@@ -39,9 +39,44 @@
 
 
 <!--ARTICLES CONTAINER-->
-
+<div class="container-fluid article-container">
+  <!--use helpers to dynamically render the articles-->
+  {{#each articles}}
+  <div data-_id="{{this._id}}" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="{{this.url}}">{{this.headline}}</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">{{this.summary}}</div>
+  </div>
+  {{/each}} {{#unless articles.length}}
+  <!--use the above #unless helper to render a message to user when no new articles are available-->
+  <div class='alert alert-warning text-center'>
+    <h4>Oops, there are currently no articles available</h4>
+  </div>
+  <div class="card">
+    <div class="card-header text-center">
+      <h3>What Would You Like To Do?</h3>
+    </div>
+    <div class="card-body text-center">
+      <h4>
+        <a class="scrape-new">Try Scraping New Articles</a>
+      </h4>
+      <h4>
+        <a href="/saved">Go to Saved Articles</a>
+      </h4>
+    </div>
+  </div>
+  {{/unless}}
+</div>
 <!--END ARTICLES CONTAINER-->
 
 <!--FOOTER-->
-
+<footer class="footer">
+  <div class="container">
+    <p>Aljazeera Scraper</p>
+  </div>
+</footer>
 <!--END FOOTER-->
